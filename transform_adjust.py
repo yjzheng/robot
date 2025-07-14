@@ -1,3 +1,5 @@
+#Paste your You pressed 0.... snippet to transform_adjust.txt
+# This script reads from transform_adjust.txt and outputs the last part of each line
 import sys
 
 # read from transform.txt
