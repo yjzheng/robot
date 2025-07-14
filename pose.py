@@ -15,6 +15,17 @@ T_pose =    [m, m-45, m+45, m+45, m,  m, m+45, m-90,
             m, m+45, m-45, m-45, m,  m, m-45, m+90]
 current_pose = [ T_pose[i] for i in range(16)]
 
+def get_all_channel_pulses():
+    for i in range(16):
+        print('<'+str(i)+','+str(current_pose[i])+','+ str(current_pose[i]-T_pose[i])+'>')
+
+def get_all_channel_pulses_short():
+    for i in range(16):
+        if i >0:
+            print (",")
+        print(str(current_pose[i]-T_pose[i]))
+
+
 pwm.print_adjust()
 for i in range(len(org_pose)):
     #pwm.rotate_to_angle(i, sit_pose[i], adjust)
@@ -50,6 +61,10 @@ try:
             #pwm.rotate_to_angle( current_channel, current_pose[current_channel], adjust)
             pwm.rotate_to_angle( current_channel, current_pose[current_channel])
             print( current_channel, current_pose[current_channel])
+        if keyin == 'p':
+            get_all_channel_pulses()
+        if keyin == 's':
+            get_all_channel_pulses_short()
         if keyin == 'q':
             break
 except:
