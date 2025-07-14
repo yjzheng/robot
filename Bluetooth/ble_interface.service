@@ -1,0 +1,14 @@
+[Unit]
+Description=BLE Interface Services
+After=bluetooth.target
+Requires=bluetooth.target
+
+[Service]
+ExecStart=/usr/bin/python3 -u ble_interface_services.py
+WorkingDirectory=/home/robot/Documents/Bluetooth
+StandardOutput=inherit
+StandardError=inherit
+User=robot
+
+[Install]
+WantedBy=multi-user.target

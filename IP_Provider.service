@@ -1,0 +1,13 @@
+[Unit]
+Description=Provide IP Info
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 -u IP_Provider.py
+WorkingDirectory=/home/robot/Documents
+StandardOutput=inherit
+StandardError=inherit
+User=robot
+
+[Install]
+WantedBy=multi-user.target
